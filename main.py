@@ -25,14 +25,6 @@ def has_required_fields(field_names, data):
             return False
     return True
 
-def has_required_fields(field_names, data):
-    # Σε αυτήν την συνάρτηση βάζουμε σε list τα ονόματα των fields που πρέπει να περιέχει το json που θα δώσει ο χρήστης.
-    # Αν δεν υπάρχει κάποιο από αυτά, επιστρέφεται False
-    for field in field_names:
-        if not field in data:
-            return False
-    return True
-
 users_sessions = list()
 def create_session(email, category):
     # Η συνάρτηση αυτή δημιουργεί και επιστρέφει ένα μοναδικό κωδικό uuid
@@ -228,4 +220,4 @@ def delete_seat(flight_id, seat):
         return Response(json.dumps({'error': 'Flight not found'}),  mimetype='application/json')
     
 if __name__ == '__main__':
-    app.run(debug=True, host=' ``````')
+    app.run(debug=True, host='5000')
