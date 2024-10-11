@@ -1,8 +1,18 @@
-FROM ubuntu:18.04
+# Χρήση της επίσημης εικόνας Python ως βάση
+FROM python:3.9
+
+# Ορισμός του working directory
+WORKDIR /app
+
+# Αντιγραφή των αρχείων στον Docker Container
+COPY . .
+
+# Προετοιμάσια για εγκατάσταση Python
 RUN apt-get update
-RUN apt-get install -y python3
-RUN apt-get install -y python3-pip
-RUN pip3 install requests
-RUN mkdir /script
-COPY main.py /script
-CMD ["python3","-u", "/script/main.py"]
+RUN pip install --no-cache-dir --upgrade pip
+
+# Εγκατάσταση των dependencies που χρειάζεται η python
+RUN pip install -r requirements.txt
+
+# Εκκίνηση της εφαρμογής
+CMD ["python", "code.py"]
