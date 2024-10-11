@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir --upgrade pip
 RUN pip install -r requirements.txt
 
 # Εκκίνηση της εφαρμογής
-CMD ["python", "code.py"]
+CMD ["python", "main.py"]
